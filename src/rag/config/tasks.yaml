@@ -1,0 +1,27 @@
+financial_report_clasifier_task:
+  description: >
+    Analyze the provided financial report content provided by Financial Report Period Tool with db_name={db_name}:
+    1. The report year (e.g., '2024')
+    2. The report type (QUARTER_1, QUARTER_2, QUARTER_3, ANNUAL_REPORT, or OTHER)
+          a. QUARTER_1 - Applies from January 01 to end of March 31
+          b  QUARTER_2 - Applies from the beginning of March 01 to end of June 30,  begining  of  January 01 to end of June 30 or half year report
+          c. QUARTER_3 - Applies from the beginning of June 01 to end of August 31 or begining of January 01 to end of August 31
+          d. QUARTER_4 - Applies from the beginning of August 01 to end of December 31 or begining  of  January 01 to end of December 31
+          e. H1 - Applies for first half year report or January 01 to end of June 30
+          f. H2 - Applies for second half year report or
+          f. ANNUAL_REPORT - Applies from the beginning of January 01 to end of December 31
+          g. OTHER - Applies to any report that is not of type QUARTER_1, QUARTER_2, QUARTER_3, QUARTER_4, ANNUAL_REPORT
+
+    3. The starting date of report period in format DD.MM.YYYY (e.g., 01.01.2024)
+    4. The end date of report period in format DD.MM.YYYY (e.g., 01.06.2024)
+    5. Provide clear reasoning for your classification
+
+    The report content may be in Romanian or English. Look for indicators such as:
+    - Date references
+    - Period mentions (trimestru, quarter, anual, annual)
+    - Contextual clues about reporting periods
+  expected_output: >
+    A JSON object with report_year, report_type, from_date, start_date and reasoning fields
+  agent: financial_report_classifier
+  output_file: resources/output/financial_report_clasifier_task.json
+

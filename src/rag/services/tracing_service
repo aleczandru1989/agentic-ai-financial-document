@@ -1,0 +1,23 @@
+import logging
+from opentelemetry import trace
+from opentelemetry.trace import get_current_span
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
+class OpenTelemetryLogHandler(logging.Handler):
+    def emit(self, record):
+        current_span = get_current_span()
+        if current_span and current_span.is_recording():
+            # Add log message as span event
+            current_span.add_event(
+                name=f"log.{record.levelname.lower()}",
+                attributes={
+                    "log.message": record.getMessage(),
+                    "log.level": record.levelname,
+                    "log.logger": record.name,
+                    "log.module": record.module,
+                    "log.function": record.funcName,
+                    "log.line": record.lineno,
+                }
+            )
