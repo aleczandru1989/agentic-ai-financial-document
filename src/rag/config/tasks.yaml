@@ -25,3 +25,20 @@ financial_report_clasifier_task:
   agent: financial_report_classifier
   output_file: resources/output/financial_report_clasifier_task.json
 
+profit_and_loss_extractor_task:
+  description: >
+    Analyze the provided financial report content provided by Profit and Loss Extractor Tool with db_name={db_name} and extract the profit and loss information exactly in the format in the provided document with no exceptions with the following constrains:
+    1. Extract BOTH individual and consolidated statements if present  
+    2. Maintain clear separation between financial view types using `[FinancialViewType]` witch can be CONSOLIDATED, INDIVIDUAL or UNKNOWN
+    3. The output should contain all the information presented in the content table with absolutely no exceptions and  converted in csv format 
+    4. The output should contain the currency of the values in the table, e.g., 'USD', 'EUR'. Use ISO 4217 for currency codes
+    5. The output should contain the formatting of the values in the table, e.g
+  expected_output: >
+    Structured P&L with data formatted like [ProfitAndLossTables] with the following mappings:
+      1. [tables] property might contain multiple P&L tables in csv format
+      2. [financial_view] property should be set to INDIVIDUAL or CONSOLIDATED based on the type of P&L table
+      3. [currency] property should be set to the currency of the values in the table, e.g., 'USD', 'EUR'
+      4. [formatting] property should be set to the formatting of the values in the table, e.g., Thousends, Milions, Bilions, Trillions, or UNKNOWNw. If there is not specific mention of formatting type, set it to UNKNOWN
+  agent: profit_and_loss_extractor
+  output_file: resources/output/profit_and_loss_extractor_task.json
+

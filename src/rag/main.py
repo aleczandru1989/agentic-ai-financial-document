@@ -1,18 +1,18 @@
 #!/usr/bin/env pyt
 import warnings
-from rag.crew import Rag
+from rag.rag_crew import RagCrew
 from rag.services.rag_builder_service import RagBuilderService
 import os
 from phoenix.otel import register
 from openinference.instrumentation.crewai import CrewAIInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
 
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 def run():
     
-    try:
-        
+    try:  
         init_tracing()
         
         content = create_rag__db('SAFE_2024')
@@ -23,7 +23,9 @@ def run():
         }
         
 
-        Rag().crew().kickoff(inputs=inputs)
+        result = RagCrew().crew().kickoff(inputs=inputs)
+        
+        print(result)
             
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
@@ -50,6 +52,8 @@ def init_tracing():
         endpoint=f"{phoenix_endpoint}/v1/traces",  # Phoenix register handles the path automatically
         auto_instrument=True,
     )
+    
+    RequestsInstrumentor().instrument(tracer_provider=tracer_provider)
     
     CrewAIInstrumentor().instrument(skip_dep_check=True, tracer_provider=tracer_provider)
     

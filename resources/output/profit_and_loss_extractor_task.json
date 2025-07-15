@@ -1,0 +1,16 @@
+{
+  "tables": [
+    {
+      "financial_view": "INDIVIDUAL",
+      "currency": "RON",
+      "formatting": "UNKNOWN",
+      "data": "PROFIT AND LOSS ACCOUNT (RON),2024,2023,Δ %\nTurnover,42,338,790,31,111,185,36%\nOther operating income,1,002,366,1,620,906,-38%\nIncome from the production of fixed assets,16,493,121,14,159,375,16%\nRaw materials and consumables used,(13,775,128),(7,143,792),93%\nMerchandise,(8,579,255),(9,959,197),-14%\nEmployee benefits expenses,(14,341,064),(11,536,210),24%\nDepreciation, amortization and impairment,(2,570,727),(2,415,067),6%\nMarketing and advertising expenses,(196,050),(234,022),-16%\nRental expenses,(29,192),(5,871),397%\nProvisions,53,614,(121,322),-\nOther expenses,(4,848,194),(4,350,681),11%\nOperating result,15,548,281,11,125,304,40%\nFinancial income,68,065,114,969,-41%\nFinancial expenses,(281,059),(224,671),25%\nGross result,15,335,287,11,015,602,39%\nIncome tax,(1,818,024),(1,277,153),42%\nNet result,13,517,263,9,738,449,39%"
+    },
+    {
+      "financial_view": "CONSOLIDATED",
+      "currency": "RON",
+      "formatting": "UNKNOWN",
+      "data": "PROFIT AND LOSS ACCOUNT (RON),2024,2023,Δ %\nRevenue from the sale of goods,28,065,812,21,335,932,32%\nProvision of services,14,811,572,9,763,856,52%\nOther income,-,27,127,-\nTurnover,42,877,384,31,126,916,38%\nOther operating revenues,1,003,618,1,629,436,-38%\nIncome from the production of fixed assets,16,493,121,14,159,375,16%\nRaw materials and consumables,(13,775,128),(7,143,792),93%\nMerchandise,(8,624,413),(9,959,197),-13%\nPersonnel expenses,(16,505,474),(15,569,939),6%\nDepreciation and amortization,(2,698,569),(2,424,900),11%\nRental,(106,005),(242,788),-56%\nMarketing and advertising expenses,(285,479),(451,523),-37%\nProvisions,53,614,(121,322),-\nOther operating expenses,(5,316,629),(5,699,790),-7%\nOperating result,13,116,041,5,302,476,147%\nFinancial income,99,031,170,105,-42%\nFinancial expenses,(323,951),(364,853),-11%\nGross result,12,891,121,5,107,728,152%\nIncome tax,(1,818,024),(1,277,153),42%\nNet result,11,073,097,3,830,575,189%\nAttributable to equity holders of the parent company,12,363,269,5,780,173,69%\nNon-controlling interests,(1,290,173),(1,949,599),-34%"
+    }
+  ]
+}
